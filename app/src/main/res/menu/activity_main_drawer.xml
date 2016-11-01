@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:checked="true"
+            android:icon="@drawable/home_menu"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_medicamentos"
+            android:icon="@drawable/icon_medicamentos"
+            android:title="Medicamentos" />
+        <item
+            android:id="@+id/nav_consumo"
+            android:icon="@drawable/icon_diario_consumo"
+            android:title="Diário de consumo" />
+        <item
+            android:id="@+id/nav_semaforo"
+            android:icon="@drawable/icon_controler"
+            android:title="Jogo do semaforo" />
+        <item
+            android:id="@+id/nav_classificar"
+            android:icon="@drawable/icon_avaliar"
+            android:title="Classificar ou partilhar" />
+
+        <item
+            android:id="@+id/nav_prefer"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Preferencias" />
+
+
+    </group>
+    <!-- adicionar um titulo caso queira-->
+    <item android:title="">
+
+
+        <menu>
+            <item
+                android:id="@+id/nav_compartilhar"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Compartilhar" />
+
+            <item
+                android:id="@+id/nav_sobre"
+                android:icon="@drawable/icon_informacao"
+                android:title="Sobre o aplicativo" />
+
+        </menu>
+    </item>
+
+</menu>

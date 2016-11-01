@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="@dimen/nav_zero_spacing"
+    android:paddingRight="@dimen/nav_zero_spacing"
+    android:paddingTop="@dimen/nav_zero_spacing"
+    android:background="@color/colorPrimary"
+    tools:context=".Activitys.ActivityCadastro2">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Avançar"
+        android:id="@+id/buttonAvancar"
+        android:background="@drawable/fundo_verde"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="254dp"
+        android:padding="@dimen/fab_margin"
+        android:layout_gravity="center"
+        android:background="#ffffff"
+        android:id="@+id/linearLayout2"
+        android:layout_above="@+id/buttonAvancar"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" >
+
+        <RadioGroup
+            android:layout_width="284dp"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo1"
+                android:id="@+id/radioButton1"
+                android:layout_weight="1"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo2"
+                android:id="@+id/radioButton2"
+                android:layout_weight="1"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Outro"
+                android:id="@+id/radioButtonOutro"
+                android:layout_weight="1"
+                android:checked="true" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tipo Glicêmico"
+        android:id="@+id/textView"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/textView"
+        android:background="@drawable/fundo_verde"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Controle Glicêmico"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/textView2"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>
