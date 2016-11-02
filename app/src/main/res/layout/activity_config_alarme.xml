@@ -158,6 +158,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Salvar"
+            android:textColor="@android:color/background_light"
             android:id="@+id/buttonSalvarAlarme"
             android:background="@drawable/fundo_verde"
             android:layout_alignParentBottom="true"

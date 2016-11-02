@@ -17,6 +17,7 @@ import br.com.drugstore.www.diabetes.Activitys.MainActivity;
  */
 public class Alarme extends Activity {
     int id;
+    double dosagem;
     private String medicamento;
     private boolean repetir;
     private boolean segunda;
@@ -27,7 +28,8 @@ public class Alarme extends Activity {
     private boolean sabado;
     private boolean domingo;
 
-    Alarme(int id, String medicamento, boolean repetir, boolean segunda, boolean terca, boolean quarta, boolean quinta, boolean sexta, boolean sabado, boolean domingo) {
+    public Alarme(int id, String medicamento, double dosagem, boolean repetir, boolean segunda, boolean terca, boolean quarta, boolean quinta, boolean sexta, boolean sabado, boolean domingo) {
+        this.dosagem = dosagem;
         this.id = id;
         this.medicamento = medicamento;
         this.repetir = repetir;
@@ -41,7 +43,8 @@ public class Alarme extends Activity {
 
     }
 
-    Alarme(String medicamento, boolean repetir, boolean segunda, boolean terca, boolean quarta, boolean quinta, boolean sexta, boolean sabado, boolean domingo) {
+    public Alarme(String medicamento, double dosagem ,boolean repetir, boolean segunda, boolean terca, boolean quarta, boolean quinta, boolean sexta, boolean sabado, boolean domingo) {
+        this.dosagem = dosagem;
         this.medicamento = medicamento;
         this.repetir = repetir;
         this.segunda = segunda;
@@ -56,6 +59,10 @@ public class Alarme extends Activity {
 
     public int getId() {
         return id;
+    }
+
+    public Double getDosagem() {
+        return dosagem;
     }
 
     public String getMedicamento() {

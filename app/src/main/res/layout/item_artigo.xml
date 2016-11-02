@@ -32,7 +32,7 @@
             android:padding="5dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Titulo"
-            android:id="@+id/text_view_nome_medicamento"
+            android:id="@+id/text_view_titulo"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
