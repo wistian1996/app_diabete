@@ -7,4 +7,6 @@
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="nav_zero_spacing">0dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="tb_texto_size">12sp</dimen>
+    <dimen name="tb_altura_size">40dp</dimen>
 </resources>
