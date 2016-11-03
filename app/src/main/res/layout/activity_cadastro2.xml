@@ -38,13 +38,14 @@
 
         <RadioGroup
             android:layout_width="284dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:id="@+id/radioGrupo">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tipo1"
-                android:id="@+id/radioButton1"
+                android:id="@+id/rbTipo1"
                 android:layout_weight="1"
                 android:checked="false" />
 
@@ -52,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tipo2"
-                android:id="@+id/radioButton2"
+                android:id="@+id/rbTipo2"
                 android:layout_weight="1"
                 android:checked="false" />
 
@@ -60,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Outro"
-                android:id="@+id/radioButtonOutro"
+                android:id="@+id/rbOutro"
                 android:layout_weight="1"
                 android:checked="true" />
         </RadioGroup>
