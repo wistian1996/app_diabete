@@ -43,21 +43,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // caso queira adicionar botao flutuante
-
+        //  botao flutuante
         fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-
-                Intent intent = new Intent(MainActivity.this, ActivityConfigAlarme.class);
-                startActivity(intent);
-            }
-        });
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -114,6 +101,7 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -135,6 +123,7 @@ public class MainActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTrasaction.replace(R.id.LayoutFragments, fragment);
             fragmentTrasaction.commit();
+            fab.setVisibility(View.INVISIBLE);
 
         } else if (id == R.id.nav_medicamentos) {
             fragment = new FragmentMedicamentos();
@@ -144,6 +133,17 @@ public class MainActivity extends AppCompatActivity
             fragmentTrasaction.replace(R.id.LayoutFragments, fragment);
             fragmentTrasaction.commit();
 
+            // setando o botao flutuante
+            fab.setVisibility(View.VISIBLE);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(MainActivity.this, ActivityConfigAlarme.class);
+                    startActivity(intent);
+                }
+            });
+
         } else if (id == R.id.nav_classificar) {
 
         } else if (id == R.id.nav_consumo) {
@@ -151,11 +151,22 @@ public class MainActivity extends AppCompatActivity
             // alterando o icone do botao flutuante
             fab.setImageResource(R.drawable.calendario_icon);
 
-
             android.support.v4.app.FragmentTransaction fragmentTrasaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTrasaction.replace(R.id.LayoutFragments, fragment);
             fragmentTrasaction.commit();
+
+
+            // setando o botao flutuante
+            fab.setVisibility(View.VISIBLE);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(MainActivity.this, ActivityConfigDiario.class);
+                    startActivity(intent);
+                }
+            });
 
 
         } else if (id == R.id.nav_prefer) {

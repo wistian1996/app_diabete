@@ -29,6 +29,7 @@ public class FragmentDiario extends Fragment {
 
         // caso queira adicionar botao flutuante
 
+
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,12 +37,10 @@ public class FragmentDiario extends Fragment {
                 /*
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
-
                 Intent intent = new Intent( getContext() , ActivityConfigDiario.class );
                 startActivity(intent);
             }
         });
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment_diario, container, false);
     }
