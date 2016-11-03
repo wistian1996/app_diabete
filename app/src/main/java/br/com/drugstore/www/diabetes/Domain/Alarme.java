@@ -16,8 +16,8 @@ import br.com.drugstore.www.diabetes.Activitys.MainActivity;
  * Created by wisti on 29/10/2016.
  */
 public class Alarme extends Activity {
-    int id;
-    double dosagem;
+    private int id;
+    private double dosagem;
     private String medicamento;
     private boolean repetir;
     private boolean segunda;
@@ -27,6 +27,9 @@ public class Alarme extends Activity {
     private boolean sexta;
     private boolean sabado;
     private boolean domingo;
+
+    public Alarme() {
+    }
 
     public Alarme(int id, String medicamento, double dosagem, boolean repetir, boolean segunda, boolean terca, boolean quarta, boolean quinta, boolean sexta, boolean sabado, boolean domingo) {
         this.dosagem = dosagem;
@@ -101,4 +104,61 @@ public class Alarme extends Activity {
         return terca;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setDosagem(double dosagem) {
+        this.dosagem = dosagem;
+    }
+
+    public void setMedicamento(String medicamento) {
+        this.medicamento = medicamento;
+    }
+
+    public void setRepetir(boolean repetir) {
+        this.repetir = repetir;
+    }
+
+    public void setSegunda(boolean segunda) {
+        this.segunda = segunda;
+    }
+
+    public void setTerca(boolean terca) {
+        this.terca = terca;
+    }
+
+    public void setQuarta(boolean quarta) {
+        this.quarta = quarta;
+    }
+
+    public void setQuinta(boolean quinta) {
+        this.quinta = quinta;
+    }
+
+    public void setSexta(boolean sexta) {
+        this.sexta = sexta;
+    }
+
+    public void setSabado(boolean sabado) {
+        this.sabado = sabado;
+    }
+
+    public void setDomingo(boolean domingo) {
+        this.domingo = domingo;
+    }
+
+    @Override
+    public String toString() {
+        String log = "Medicamento: "+getMedicamento()+"\n";
+        log += "Dosagem: "+getDosagem()+"\n";
+        log += "Seg: "+isSegunda()+"\n";
+        log += "Ter: "+isTerca()+"\n";
+        log += "Qua: "+isQuarta()+"\n";
+        log += "Qui: "+isQuinta()+"\n";
+        log += "Sex: "+isSexta()+"\n";
+        log += "Sab: "+isSabado()+"\n";
+        log += "Dom: "+isDomingo()+"\n";
+        return log;
+    }
 }
