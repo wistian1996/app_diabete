@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,6 +23,7 @@ import android.view.MenuItem;
 import java.util.Calendar;
 
 import br.com.drugstore.www.diabetes.Domain.BroadcastReceiver1;
+import br.com.drugstore.www.diabetes.Fragments.FragmentDiario;
 import br.com.drugstore.www.diabetes.Fragments.FragmentHome;
 import br.com.drugstore.www.diabetes.Fragments.FragmentMedicamentos;
 import br.com.drugstore.www.diabetes.R;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity
     private Fragment fragment;
     // boolean para verificar se entrou pela primeira vez
     private boolean inicio = true;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity
 
         // caso queira adicionar botao flutuante
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,6 +138,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_medicamentos) {
             fragment = new FragmentMedicamentos();
+            fab.setImageResource(R.drawable.icon_relogio);
             android.support.v4.app.FragmentTransaction fragmentTrasaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTrasaction.replace(R.id.LayoutFragments, fragment);
@@ -143,6 +147,16 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_classificar) {
 
         } else if (id == R.id.nav_consumo) {
+            fragment = new FragmentDiario();
+            // alterando o icone do botao flutuante
+            fab.setImageResource(R.drawable.calendario_icon);
+
+
+            android.support.v4.app.FragmentTransaction fragmentTrasaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTrasaction.replace(R.id.LayoutFragments, fragment);
+            fragmentTrasaction.commit();
+
 
         } else if (id == R.id.nav_prefer) {
 
@@ -159,9 +173,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
 
 
 }

@@ -72,6 +72,7 @@ public class ActivityConfigAlarme extends AppCompatActivity {
         checkBoxSexta = (CheckBox) findViewById(R.id.checkBoxSexta);
         checkBoxSabado = (CheckBox) findViewById(R.id.checkBoxSabado);
         alarme = new Alarme();
+
         daoAlarme = new DAOAlarme(getApplicationContext());
         // inicializando o time picker
         timePicker = (TimePicker) findViewById(R.id.timePicker);
@@ -79,7 +80,9 @@ public class ActivityConfigAlarme extends AppCompatActivity {
         calendar = Calendar.getInstance();
 
         buttonSalvarAlarme = (Button) findViewById(R.id.buttonSalvarAlarme);
+
         this.context = this;
+
         linearLayout.setVisibility(View.GONE);
         // inicializando alarm manager
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -115,8 +118,11 @@ public class ActivityConfigAlarme extends AppCompatActivity {
                 timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
                     @Override
                     public void onTimeChanged(TimePicker timePicker, int _hora, int _minuto) {
+                        // nao esta funcionando
                         hora = _hora;
                         minuto = _minuto;
+                        resetCadastro();
+                        return;
                     }
                 });
 
@@ -131,9 +137,10 @@ public class ActivityConfigAlarme extends AppCompatActivity {
                         resetCadastro();
                     }
                 }
-//                gerarAlarme();
+               gerarAlarme();
             }
         });
+
     }
 
     /**
@@ -281,13 +288,15 @@ public class ActivityConfigAlarme extends AppCompatActivity {
         checkBoxSabado.setChecked(false);
         linearLayout.setVisibility(View.GONE);
     }
+
+
     // gerar notificacao
     public void gerarNotificacao() {
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         PendingIntent p = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), 0);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         // texto rapido que aparece na notificacao
-        builder.setTicker("Alarme");
+        builder.setTicker("Hora do remedio");
         // titulo da notificao que ficara amostra do usuario
         builder.setContentTitle("Tomar remedio");
         // texto menor que aparece na notificacao
@@ -297,7 +306,7 @@ public class ActivityConfigAlarme extends AppCompatActivity {
         // icone grande
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.icon_medicamentos));
         builder.setContentIntent(p);
-
+/*
         // adicionar mais textos na notificacao
         NotificationCompat.InboxStyle style = new NotificationCompat.InboxStyle();
         ArrayList<String> listaTextos = new ArrayList<>();
@@ -309,7 +318,7 @@ public class ActivityConfigAlarme extends AppCompatActivity {
             style.addLine(listaT);
         }
         builder.setStyle(style);
-
+*/
         //trabalhando a notificacao
         Notification n = builder.build();
         //fazer ele vibrar
@@ -347,19 +356,24 @@ public class ActivityConfigAlarme extends AppCompatActivity {
     }
 
     public void gerarAlarme(){
+
         //pegando o tempo atual do sistema em milisegundos
 
         Calendar c = Calendar.getInstance();
         // definir a hora que vai ser disparado o alaarme
         c.setTimeInMillis(System.currentTimeMillis());
-        // acresentando um tempo a mais para saber se esta funcionando
-        c.add(Calendar.SECOND, 5);
+        // alterando a hora do calendario
+
+        c.set(Calendar.HOUR_OF_DAY, timePicker.getCurrentHour()); //zerando as horas, minuots e segundos..
+        c.set(Calendar.MINUTE, timePicker.getCurrentMinute() );
+        c.set(Calendar.SECOND, 0);
 
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+
         Date d = new Date(c.getTime().getTime());
         String dayOfTheWeek = sdf.format(d);
 
-        Toast toast = Toast.makeText(getApplicationContext(), dayOfTheWeek , Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(),"Lembrete adicionado para:"+ timePicker.getCurrentHour()+ ":"+  timePicker.getCurrentMinute() + " "+ dayOfTheWeek , Toast.LENGTH_SHORT);
         toast.show();
 
         Intent intent = new Intent(this, BroadcastReceiver1.class);

@@ -103,6 +103,7 @@
                     android:textStyle="bold"
                     android:textOff="@string/tb_d"
                     android:textOn="@string/tb_d"
+
                     android:layout_weight="1"
                     android:checked="false" />
 
