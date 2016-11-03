@@ -29,30 +29,39 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <TimePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/timePicker"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
         <LinearLayout
-            android:padding="10dp"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/LinearLayoutNomes">
+            android:id="@+id/layout_relogio"
+            android:layout_marginBottom="16dp"
+            android:gravity="top|center_vertical|center_horizontal">
+
+            <TimePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/timePicker"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/LinearLayoutNomes"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
 
             <EditText
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/editText"
+                android:id="@+id/et_nomeMedicamento"
                 android:layout_below="@+id/timePicker"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="35dp"
                 android:hint="Nome do medicamento"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
@@ -64,8 +73,8 @@
                 android:inputType="number"
                 android:ems="10"
                 android:hint="Dosagem"
-                android:id="@+id/editText2"
-                android:layout_below="@+id/editText"
+                android:id="@+id/et_dosagem"
+                android:layout_below="@+id/et_nomeMedicamento"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentRight="true"
@@ -77,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:text="Repetir"
                 android:id="@+id/checkBoxRepetir"
-                android:layout_below="@+id/editText2"
+                android:layout_below="@+id/et_dosagem"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false"
@@ -85,7 +94,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:padding="10dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -94,7 +102,11 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:id="@+id/linearLayoutDias">
+            android:id="@+id/linearLayoutDias"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
 
             <CheckBox
                 android:layout_width="wrap_content"
