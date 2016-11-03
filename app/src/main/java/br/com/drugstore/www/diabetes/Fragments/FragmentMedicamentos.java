@@ -17,6 +17,8 @@ import java.util.List;
 
 import br.com.drugstore.www.diabetes.Adapters.ArtigoAdapter;
 import br.com.drugstore.www.diabetes.Adapters.MedicamentosAdapter;
+import br.com.drugstore.www.diabetes.Adapters.MedicamentosAdapterTb;
+import br.com.drugstore.www.diabetes.DAO.DAOAlarme;
 import br.com.drugstore.www.diabetes.Domain.Alarme;
 import br.com.drugstore.www.diabetes.Domain.Artigo;
 import br.com.drugstore.www.diabetes.R;
@@ -26,13 +28,14 @@ import br.com.drugstore.www.diabetes.R;
  * A simple {@link Fragment} subclass.
  */
 public class FragmentMedicamentos extends Fragment {
+
     private RecyclerView recyclerView;
     private List<Alarme> listAlarme;
+    private DAOAlarme daoAlarme;
 
     public FragmentMedicamentos() {
-        // Required empty public constructor
-    }
 
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,31 +43,24 @@ public class FragmentMedicamentos extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_medicamentos, container, false);
 
+        daoAlarme = new DAOAlarme(getContext());
+
         recyclerView = (RecyclerView) view.findViewById(R.id.rv_lista);
         recyclerView.setHasFixedSize(true);
-
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
         recyclerView.setLayoutManager(llm);
 
-        ArrayList<Alarme> lAlarmes = new ArrayList<>();
-
-        Alarme alarme1 = new Alarme(1, "Dorflex", 10, false, false, false, false, false, false, false, false);
-        Alarme alarme2 = new Alarme(2, "Neosaldina", 12, false, false, false, false, false, false, false, false);
-        Alarme alarme3 = new Alarme(3, "Dramim", 20.5, false, false, false, false, false, false, false, false);
-        Alarme alarme4 = new Alarme(4, "Paracetamol", 25.3, false, false, false, false, false, false, false, false);
-
-        lAlarmes.add(alarme1);
-        lAlarmes.add(alarme2);
-        lAlarmes.add(alarme3);
-        lAlarmes.add(alarme4);
-
-        listAlarme = lAlarmes;
+        listAlarme = daoAlarme.getTodosAlarmes();
 
         MedicamentosAdapter medAdapter = new MedicamentosAdapter(getActivity(), listAlarme);
-        recyclerView.setAdapter(medAdapter);
+        MedicamentosAdapterTb medAdapterTb = new MedicamentosAdapterTb(getActivity(), listAlarme);
+
+//        recyclerView.setAdapter(medAdapter);
+        recyclerView.setAdapter(medAdapterTb);
+
         return view;
 
     }
