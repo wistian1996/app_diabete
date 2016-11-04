@@ -65,7 +65,7 @@ public class DAODiario {
         return list;
     }
 
-    public ArrayList<Diario> getTodosDiario(Date date) {
+    public ArrayList<Diario> getDiario(Date date) {
         //
         db = conexaoSQLite.getReadableDatabase();
         // lista que salvará todos os resultados

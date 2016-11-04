@@ -40,7 +40,6 @@
         <activity android:name=".Activitys.ActivityConfigAlarme">
             android:screenOrientation="portrait"
         </activity>
-        <activity android:name=".Activitys.ActivityConfigDiario"></activity>
     </application>
 
 </manifest>

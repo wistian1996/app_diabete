@@ -149,24 +149,13 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_consumo) {
             fragment = new FragmentDiario();
             // alterando o icone do botao flutuante
-            fab.setImageResource(R.drawable.calendario_icon);
+            fab.setVisibility(View.INVISIBLE);
 
             android.support.v4.app.FragmentTransaction fragmentTrasaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTrasaction.replace(R.id.LayoutFragments, fragment);
             fragmentTrasaction.commit();
 
-
-            // setando o botao flutuante
-            fab.setVisibility(View.VISIBLE);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Intent intent = new Intent(MainActivity.this, ActivityConfigDiario.class);
-                    startActivity(intent);
-                }
-            });
 
 
         } else if (id == R.id.nav_prefer) {

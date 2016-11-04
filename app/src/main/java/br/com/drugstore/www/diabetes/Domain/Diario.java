@@ -22,6 +22,13 @@ public class Diario {
         this.glicemia = glicemia;
     }
 
+    public Diario( Date data, String anotacao, double glicemia) {
+
+        this.data = data;
+        this.anotacao = anotacao;
+        this.glicemia = glicemia;
+    }
+
     public int getId() {
         return id;
     }
